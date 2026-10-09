@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Samipink</title>
+    <meta name="description" content="Samipink — personal projects and interactive demos." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231668a8'/%3E%3Ctext x='32' y='45' font-family='Segoe UI,Arial,sans-serif' font-size='38' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+    <style>
+        /* Tokens — same palette as the S3analyse demo site, so the two read as one family. */
+        :root {
+            --brand: #1668a8;
+            --brand-strong: #0f4d7d;
+            --brand-soft: #e8f2fa;
+            --accent: #17867d;
+            --bg: #f5f7f9;
+            --surface: #ffffff;
+            --text: #16212b;
+            --text-2: #4a5a68;
+            --text-3: #74838f;
+            --border: #dde4ea;
+            --shadow: 0 1px 2px rgba(16, 33, 48, 0.06), 0 2px 8px rgba(16, 33, 48, 0.06);
+            --focus: #0f6cba;
+            --radius: 10px;
+            --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --brand: #4aa3e0;
+                --brand-strong: #7cc0ee;
+                --brand-soft: #14293a;
+                --accent: #4ec9bd;
+                --bg: #0e1620;
+                --surface: #151f2b;
+                --text: #e3ebf2;
+                --text-2: #a9bac8;
+                --text-3: #7b8b99;
+                --border: #26333f;
+                --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.3);
+                --focus: #6fb6ea;
+                color-scheme: dark;
+            }
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        a { color: var(--brand); }
+        a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+        .wrap { width: 100%; max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+
+        header { padding: 4.5rem 0 2.5rem; }
+
+        .mark {
+            display: inline-grid;
+            place-items: center;
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 14px;
+            background: var(--brand);
+            color: #fff;
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 { margin: 0; font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; }
+
+        .intro { margin: 0.9rem 0 0; font-size: 1.15rem; color: var(--text-2); max-width: 36rem; }
+
+        main { flex: 1; padding-bottom: 3rem; }
+
+        h2 {
+            margin: 0 0 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-3);
+        }
+
+        .projects { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+
+        .card {
+            display: block;
+            padding: 1.25rem 1.4rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--brand);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+        .card:hover { transform: translateY(-2px); border-color: var(--brand); }
+
+        .card h3 { margin: 0 0 0.35rem; font-size: 1.15rem; color: var(--brand-strong); }
+        .card p { margin: 0; color: var(--text-2); }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+        .tag {
+            font-size: 0.78rem;
+            padding: 0.1rem 0.55rem;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-3);
+        }
+        footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
+
+        @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="mark" aria-hidden="true">S</div>
+            <h1>Samipink</h1>
+            <p class="intro">Personal projects and interactive demos.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap">
+            <h2>Projects</h2>
+            <ul class="projects">
+                <li>
+                    <a class="card" href="/s3analyse-demo/">
+                        <h3>S3analyse Demo</h3>
+                        <p>
+                            A showcase site for S3analyse, Sciencesoft's reservoir simulation analysis
+                            software. It has interactive line-plot and 3D grid demos and searchable
+                            product reference pages.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Blazor</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Three.js</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>© 2026 Samipink. All rights reserved.</span>
+            <a href="https://github.com/Samipink">GitHub</a>
+        </div>
+    </footer>
+</body>
+</html>
