@@ -106,7 +106,19 @@
             text-decoration: none;
             transition: transform 0.15s ease, border-color 0.15s ease;
         }
-        .card:hover { transform: translateY(-2px); border-color: var(--brand); }
+        a.card:hover { transform: translateY(-2px); border-color: var(--brand); }
+
+        .card-pending { border-left-color: var(--text-3); }
+        .badge {
+            margin-left: 0.4rem;
+            padding: 0.1rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            font-size: 0.72rem;
+            font-weight: 600;
+            vertical-align: middle;
+            color: var(--text-3);
+        }
 
         .card h3 { margin: 0 0 0.35rem; font-size: 1.15rem; color: var(--brand-strong); }
         .card p { margin: 0; color: var(--text-2); }
@@ -158,6 +170,22 @@
                             <span class="tag">Three.js</span>
                         </div>
                     </a>
+                </li>
+                <li>
+                    <!-- Not a link yet: the site isn't published. When it goes live, change this
+                         <div> to <a class="card" href="/<repo-name>/"> and remove the badge. -->
+                    <div class="card card-pending">
+                        <h3>Academia <span class="badge">Coming soon</span></h3>
+                        <p>
+                            My personal website: qualifications, research topic and work history,
+                            plus motorbikes, gardening and a photo gallery.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">XHTML 1.0 Strict</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
